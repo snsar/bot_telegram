@@ -12,11 +12,11 @@ const bot = new TelegramBot(botToken, {polling: true});
 
     
 
-bot.onText(/\/start/, (msg) => {
+// bot.onText(/\/start/, (msg) => {
 
-    bot.sendMessage(msg.chat.id, "Welcome mice fence");
+//     bot.sendMessage(msg.chat.id, "Welcome mice fence");
     
-});
+// });
 
 
 
@@ -33,6 +33,15 @@ let lat = '20.980940'
 let lon = '105.787330'
 let lang = 'vi'
 let units = 'metric'
+
+// let 
+
+
+// const location = {
+//    thanhHoa: {
+
+//    }
+// }
 
 let weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherToken}&units=${units}&lang=${lang}`
 
@@ -57,7 +66,7 @@ const main = async () => {
 //   console.log(weatherString);
   
 //   bot.sendMessage(process.env.TELEGRAM_CHAT_ID, weatherString);
-  bot.onText(/\/weathernow/, (msg) => {
+  bot.onText(/\/weather hadong/, (msg) => {
 
         bot.sendMessage(msg.chat.id, weatherString);
     
@@ -66,6 +75,17 @@ const main = async () => {
 
 main();
 
+bot.onText(/\/help/, (msg) => {
 
-    
+  bot.sendMessage(msg.chat.id, "Welcome", {
+  "reply_markup": {
+      "keyboard": [["/yasuo", "/ptit", "/weather hadong"],   ["Keyboard"], ["I'm robot"], ["/start"]]
+      }
+  });
+  
+});
+
+
+
+
 
